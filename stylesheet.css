@@ -145,3 +145,93 @@ span.highlight {
 .pub-button:hover {
   background-color: #1e7fe6;
 }
+
+/* ===== Publications Page ===== */
+.pub-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.pub-header {
+  display: grid;
+  grid-template-columns: 1fr 100px 60px;
+  background: #f5f5f5;
+  padding: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.pub-row {
+  display: grid;
+  grid-template-columns: 1fr 100px 60px;
+  padding: 12px 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.pub-title a {
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #1a0dab;
+}
+
+.pub-title a:hover {
+  text-decoration: underline;
+}
+
+.pub-authors {
+  font-size: 13px;
+  color: #555;
+  margin-top: 4px;
+}
+
+.pub-venue {
+  font-size: 13px;
+  color: #777;
+}
+
+.pub-project,
+.pub-year {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pub-link {
+  padding: 4px 10px;
+  border: 1px solid #4da3ff;
+  border-radius: 6px;
+  color: #4da3ff;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.pub-link:hover {
+  background-color: #4da3ff;
+  color: white;
+}
+
+.back-home {
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #4da3ff;
+}
+
+/* เพิ่ม CSS ให้ดูเหมือนกดได้ */
+.pub-year.sortable {
+  cursor: pointer;
+  user-select: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.pub-year.sortable:hover {
+  color: #007bff;
+}
+
+.pub-footer {
+  margin-top: 40px;
+}
