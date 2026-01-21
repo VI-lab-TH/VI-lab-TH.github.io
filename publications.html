@@ -1,415 +1,797 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Thanapong Intharah</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: color 0.2s;
+        }
+
+        .back-button:hover {
+            color: #0052a3;
+        }
+
+        .back-arrow {
+            font-size: 18px;
+        }
+        .pub-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 10px;
+        }
+
+        .pub-header-left {
+            font-weight: 600;
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pub-header-right {
+            display: flex;
+            gap: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pub-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            border-bottom: 1px solid #e8e8e8;
+            transition: background-color 0.2s;
+        }
+
+        .pub-row:hover {
+            background-color: #fafafa;
+        }
+
+        .pub-title-container {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .pub-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .pub-title a {
+            color: #0066cc;
+            text-decoration: none;
+            line-height: 1.5;
+        }
+
+        .pub-title a:hover {
+            text-decoration: underline;
+        }
+
+        .pub-authors {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 4px;
+        }
+
+        .pub-authors strong {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .pub-venue {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .pub-right {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .pub-link {
+            padding: 6px 20px;
+            background-color: white;
+            border: 1px solid #0066cc;
+            color: #0066cc;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .pub-link:hover {
+            background-color: #0066cc;
+            color: white;
+        }
+
+        .pub-year {
+            font-size: 16px;
+            font-weight: 500;
+            color: #000;
+            min-width: 50px;
+            text-align: right;
+        }
+
+        .sort-button {
+            background: none;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.2s;
+        }
+
+        .sort-button:hover {
+            color: #0066cc;
+        }
+
+        .sort-button.active {
+            color: #0066cc;
+        }
+
+        .sort-icon {
+            font-size: 12px;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .pub-row {
+                flex-direction: column;
+            }
+
+            .pub-right {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .pub-header-right {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <title>Publications | VI-Lab</title>
   <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
 
-<div class="pub-container">
-  <h2>Publications</h2>
-  
-  <div>
-    <a class="back-home" href="index.html">← Back to Home</a>
-  </div>
-  <!-- Header -->
-  <div class="pub-header">
-    <div class="pub-title">TITLE</div>
-    <div class="pub-project">PROJECT</div>
-    <div class="pub-year sortable" onclick="sortByYear()">
-    YEAR ▼
+<div class="pub-container"> -->
+
+<body>
+    <div class="container">
+        <h1>Publications</h1>
+        <a href="https://vi-lab-th.github.io/index.html" class="back-button">
+            <span class="back-arrow">←</span> Back to Home
+        </a>
+        <div class="pub-header">
+            <div class="pub-header-left">TITLE</div>
+            <div class="pub-header-right">
+                <div>PROJECT</div>
+                <button class="sort-button active" id="yearSort">
+                    YEAR <span class="sort-icon" id="sortIcon">▼</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="publications-list">
+
+        <div class="pub-row" data-year="2025" data-citations="2">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://www.sciencedirect.com/science/article/pii/S1746809424013235" target="_blank">Classification of beta-thalassemia major and HbE/beta-thalassemia via deep learning of image structure function image</a>
+                </div>
+                <div class="pub-authors">Ungkarn Jarujareet, Kannika Wiratchawa, Touchwin Petiwathayakorn, Pimpisid Koonyosying, Sasinee Hantrakool, Somdet Srichairatanakool, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">Biomedical Signal Processing and Control 102, 107265</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://www.sciencedirect.com/science/article/pii/S1746809424013235" target="_blank">Link</a>
+                <div class="pub-year">2025</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2025" data-citations="1">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://www.sciencedirect.com/science/article/pii/S0020653925032502" target="_blank">Automated Age and Sex Estimation From Dental Panoramic Radiographs</a>
+                </div>
+                <div class="pub-authors">Natnicha Sributsayakarn,  <strong>Thanapong Intharah</strong>, Natthanich Hirunchavarod, Suchaya Pornprasertsuk-Damrongsri, Varangkanar Jirarattanasopha</div>
+                <div class="pub-venue">International Dental Journal 75 (6), 103967</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://www.sciencedirect.com/science/article/pii/S0020653925032502" target="_blank">Link</a>
+                <div class="pub-year">2025</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2025" data-citations="0">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0332484" target="_blank">Democratizing social media for health research: LLM-powered data analytics platform for NCDs</a>
+                </div>
+                <div class="pub-authors">Ratchanont Thippimanporn, Wuttichai Khamna, Kannika Wiratchawa, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">PLoS ONE 20 (9), e0332484</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0332484" target="_blank">Link</a>
+                <div class="pub-year">2025</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2025" data-citations="0">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://www.nature.com/articles/s41598-025-16893-7" target="_blank">AI-enhanced rapid diagnostic testing platform for mass opisthorchiasis screening</a>
+                </div>
+                <div class="pub-authors">Prem Junsawang, Anchalee Techasen, Kannika Wiratchawa, Yupaporn Wanna, Phattharaphon Wongphutorn, Chanika Worasith, Paiboon Sithithaworn, Sahan Bulathwela, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">Scientific Reports 15 (1), 31062</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://www.nature.com/articles/s41598-025-16893-7" target="_blank">Link</a>
+                <div class="pub-year">2025</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2025" data-citations="0">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11131129" target="_blank">OPG-SPELL: Visual and Textual Explanations that Influence Understanding of the AI Model for Sex Prediction from Orthopantomograms</a>
+                </div>
+                <div class="pub-authors">Lapatrada Dangsungnoen, Kwansawan Thongprasant, Kannika Wiratchawa, Natthanich Hirunchavarod, Varangkanar Jirarattanasopha, Natnicha Sributsayakarn, Suchaya Pornprasertsuk-Damrongsri, Thammathip Piumsomboon,  <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">IEEE Access</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11131129" target="_blank">Link</a>
+                <div class="pub-year">2025</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2025" data-citations="0">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0322854" target="_blank">AISIM: evaluating impacts of user interface elements of an AI assisting tool</a>
+                </div>
+                <div class="pub-authors">Kannika Wiratchawa, Yupaporn Wanna, Prem Junsawang, Attapol Titapun, Anchalee Techasen, Arunnit Boonrod, Vallop Laopaiboon, Nittaya Chamadol, Sahan Bulathwela, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">PLoS ONE 20 (5), e0322854</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0322854" target="_blank">Link</a>
+                <div class="pub-year">2025</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2025" data-citations="0">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11137611" target="_blank">DentAnalyzer: Training Car Part Estimation and Car Damage Assessment via Generated and Real Car Images</a>
+                </div>
+                <div class="pub-authors">Phuris Kruacharee, Thanaphorn Kanking, Yupaporn Wanna, Pharamut Makjaroen, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">2025 International Technical Conference on Circuits/Systems, Computers, and Communications (ITC-CSCC)</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11137611" target="_blank">Link</a>
+                <div class="pub-year">2025</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2025" data-citations="0">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://pubs.rsc.org/en/content/articlelanding/2025/nr/d5nr01187f/unauth" target="_blank">Machine learning-assisted detection of single-point mutations via DNA-templated gold nanoparticle growth</a>
+                </div>
+                <div class="pub-authors">Piyaporn Matulakul, Witthawat Phanchai, Janpen Thonghlueng, Nathakrit Kasemsuk, Uthumporn Panitanarak, Wuttichai Srisodaphol, Kannika Wiratchawa, 
+                    Yupaporn Wanna,  <strong>Thanapong Intharah</strong>, Katawut Namdee, Chadamas Sakonsinsiri, Theerapong Puangmali</div>
+                <div class="pub-venue">Nanoscale 17 (36), 21042-21055</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://pubs.rsc.org/en/content/articlelanding/2025/nr/d5nr01187f/unauth" target="_blank">Link</a>
+                <div class="pub-year">2025</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2024" data-citations="3">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304156" target="_blank">The in vitro assessment of rheological properties and dentin remineralization of saliva substitutes containing propolis and aloe vera extracts</a>
+                </div>
+                <div class="pub-authors">SSurapong Srisomboon, <strong>Thanapong Intharah</strong>, Ungkarn Jarujareet, Arnit Toneluck, Piyaphong Panpisut</div>
+                <div class="pub-venue">PLoS ONE 19 (5), e0304156</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0304156" target="_blank">Link</a>
+                <div class="pub-year">2024</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2024" data-citations="8">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://www.cell.com/heliyon/fulltext/S2405-8440(24)02184-4" target="_blank">Attacking the out-of-domain problem of a parasite egg detection in-the-wild</a>
+                </div>
+                <div class="pub-authors">Nutsuda Penpong, Yupaporn Wanna, Cristakan Kamjanlard, Anchalee Techasen, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">Heliyon 10 (4), e26003</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://www.cell.com/heliyon/fulltext/S2405-8440(24)02184-4" target="_blank">Link</a>
+                <div class="pub-year">2024</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2024" data-citations="6">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10635634" target="_blank">Deeptoothduo: Multi-task age-sex estimation and understanding via panoramic radiograph</a>
+                </div>
+                <div class="pub-authors">Natthanich Hirunchavarod, Pornnakanok Phuphatham, Natnicha Sributsayakarn, Narawit Prathansap, Suchaya Pornprasertsuk-Damrongsri, Varangkanar Jirarattanasopha, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">2024 IEEE International Symposium on Biomedical Imaging (ISBI)</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10635634" target="_blank">Link</a>
+                <div class="pub-year">2024</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2024" data-citations="4">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://pubs.acs.org/doi/full/10.1021/acsabm.4c00516" target="_blank">A Compact Differential Dynamic Microscopy-based Device (cDDM): An Approach Tool for Early Detection of Hypercoagulable State in Transfusion-Dependent-β-Thalassemia Patients</a>
+                </div>
+                <div class="pub-authors">Touchwin Petiwathayakorn, Narisara Paradee, Sasinee Hantrakool, Ungkarn Jarujareet, <strong>Thanapong Intharah</strong>, Somdet Srichairatanakool, Pimpisid Koonyosying</div>
+                <div class="pub-venue">ACS Applied Bio Materials 7 (7), 4710-4724</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://pubs.acs.org/doi/full/10.1021/acsabm.4c00516" target="_blank">Link</a>
+                <div class="pub-year">2024</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2024" data-citations="2">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10628173" target="_blank">ThalNet: Deep Learning for Thalassemia via Blood Image Structure Function Image</a>
+                </div>
+                <div class="pub-authors">Kannika Wiratchawa, Touchwin Petiwathayakorn, Somdet Srichairatanakool, Pimpisid Koonyosying, Ungkarn Jarujareet, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">2024 International Technical Conference on Circuits/Systems, Computers, and Communications (ITC-CSCC)</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10628173" target="_blank">Link</a>
+                <div class="pub-year">2024</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2024" data-citations="2">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10628217" target="_blank">OPG-SHAP: A Dental AI Tool for Explaining Learned Orthopantomogram Image Recognition</a>
+                </div>
+                <div class="pub-authors">Natthanich Hirunchavarod, Lapatrada Dangsungnoen, Kwansawan Thongprasant, Pornnakanok Phuphatham, Narawit Prathansap, Natnicha Sributsayakarn, 
+                    Suchaya Pornprasertsuk-Damrongsri, Varangkanar Jirarattanasopha, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">2024 International Technical Conference on Circuits/Systems, Computers, and Communications (ITC-CSCC)</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10628217" target="_blank">Link</a>
+                <div class="pub-year">2024</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2024" data-citations="0">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10499663" target="_blank">CONG: Yet Another Human Tracking Dataset, but with a Little Secret</a>
+                </div>
+                <div class="pub-authors">Yupaporn Wanna, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">2024 16th Conference on Knowledge and Smart Technology (KST)</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10499663" target="_blank">Link</a>
+                <div class="pub-year">2024</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2023" data-citations="18">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://pubs.rsc.org/en/content/articlehtml/2023/ra/d2ra05725e" target="_blank">Rapid detection of cancer DNA in human blood using cysteamine-capped AuNPs and a machine learning-enabled smartphone</a>
+                </div>
+                <div class="pub-authors">Sireemas Koowattanasuchat, Sawinee Ngernpimai, Piyaporn Matulakul, Janpen Thonghlueng, Witthawat Phanchai, Apiwat Chompoosor, 
+                    Uthumporn Panitanarak, Yupaporn Wanna,  <strong>Thanapong Intharah</strong>, Kanokon Chootawiriyasakul, Pimjai Anata, Prajuab Chaimnee, Raynoo Thanan, Chadamas Sakonsinsiri, Theerapong Puangmali</div>
+                <div class="pub-venue">RSC Advances 13 (2), 1301-1311</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://pubs.rsc.org/en/content/articlehtml/2023/ra/d2ra05725e" target="_blank">Link</a>
+                <div class="pub-year">2023</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2023" data-citations="12">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://pubs.acs.org/doi/pdf/10.1021/acsami.3c00785" target="_blank">Dual-Responsive Carbon Quantum Dots for the Simultaneous Detection of Cytosine and 5-Methylcytosine Interpreted by a Machine Learning-Assisted Smartphone</a>
+                </div>
+                <div class="pub-authors">Janpen Thonghlueng, Sawinee Ngernpimai, Adulvit Chuaephon, Witthawat Phanchai, Theanchai Wiwasuku, Yupaporn Wanna, Kannika Wiratchawa, 
+                    <strong>Thanapong Intharah</strong>, Raynoo Thanan, Chadamas Sakonsinsiri, Theerapong Puangmali</div>
+                <div class="pub-venue">ACS Applied Materials & Interfaces 15 (34), 40141-40152</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://pubs.acs.org/doi/pdf/10.1021/acsami.3c00785" target="_blank">Link</a>
+                <div class="pub-year">2023</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2023" data-citations="10">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://www.sciencedirect.com/science/article/pii/S0933365723000532" target="_blank">BiTNet: Hybrid deep convolutional model for ultrasound image analysis of human biliary tract and its applications</a>
+                </div>
+                <div class="pub-authors"><strong>Thanapong Intharah</strong>, Kannika Wiratchawa, Yupaporn Wanna, Prem Junsawang, Attapol Titapun, Anchalee Techasen, 
+                    Arunnit Boonrod, Vallop Laopaiboon, Nittaya Chamadol, Narong Khuntikeo</div>
+                <div class="pub-venue">Artificial Intelligence in Medicine 139, 102539</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://www.sciencedirect.com/science/article/pii/S0933365723000532" target="_blank">Link</a>
+                <div class="pub-year">2023</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2023" data-citations="9">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10167632" target="_blank">Deepddm: A compact deep-learning assisted platform for micro-rheological assessment of micro-volume fluids</a>
+                </div>
+                <div class="pub-authors">Ungkarn Jarujareet, Kannika Wiratchawa, Piyaphong Panpisut, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">IEEE Access 11, 66467-66477</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10167632" target="_blank">Link</a>
+                <div class="pub-year">2023</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2023" data-citations="4">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10212499" target="_blank">DeepTooth: Estimating Age and Gender with Panoramic Radiograph Image</a>
+                </div>
+                <div class="pub-authors">Wanita Somdej, Athitiya Thamvongsa, Natthanich Hirunchavarod, Natnicha Sributsayakarn, Suchaya Pornprasertsuk-Damrongsri, 
+                    Varangkanar Jirarattanasopha, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">2023 International Technical Conference on Circuits/Systems, Computers, and Communications (ITC-CSCC)</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/10212499" target="_blank">Link</a>
+                <div class="pub-year">2023</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2023" data-citations="3">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10212660" target="_blank">Development of OO-Do-Aware Parasite Egg Detection</a>
+                </div>
+                <div class="pub-authors">Nutsuda Penpong, Yupaporn Wanna, Cristakan Kamjanlard, Anchalee Techasen, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">2023 International Technical Conference on Circuits/Systems, Computers, and Communications (ITC-CSCC)</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/10212660" target="_blank">Link</a>
+                <div class="pub-year">2023</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2023" data-citations="2">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10034633" target="_blank">Dual Image QR Codes: The Best of Both Worlds</a>
+                </div>
+                <div class="pub-authors">Chakrit Kammason, Yupaporn Wanna, Kannika Wiratchawa, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">2022 International Conference on Digital Image Computing: Techniques and Applications (DICTA)</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/10034633" target="_blank">Link</a>
+                <div class="pub-year">2023</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2023" data-citations="0">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10212606" target="_blank">DeepBET: Estimating the Surface Area of Plant Carbon using SEM Image</a>
+                </div>
+                <div class="pub-authors">Chayakon Chanlun, Kittikhun Kiattisaksiri, Lapatrada Dangsungnoen, Kannika Wiratchawa, Likkhasit Thabtham, Supree Pinitsoontorn, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">2023 International Technical Conference on Circuits/Systems, Computers, and Communications (ITC-CSCC)</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/10212606" target="_blank">Link</a>
+                <div class="pub-year">2023</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2022" data-citations="9">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/9894968" target="_blank">DentShadeAI: a Framework for Automatic Dental Shade Matching through Mobile Phone Camera</a>
+                </div>
+                <div class="pub-authors">Yupaporn Wanna, Kannika Wiratchawa, Rattaporn Leenaracharoongruang, Waraporn Sittiwong, Piyaphong Panpisut, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">2022 37th International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/9894968" target="_blank">Link</a>
+                <div class="pub-year">2022</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2022" data-citations="2">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/9895044" target="_blank">Training Deep CNN's to Detect Prostate Cancer Lesion with Small Training Data</a>
+                </div>
+                <div class="pub-authors">Kannika Wiratchawa, Yupaporn Wanna, Sirirat Cha-in, Chalida Aphinives, Potchavit Aphinives, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">2022 37th International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/9895044" target="_blank">Link</a>
+                <div class="pub-year">2022</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2021" data-citations="4">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://www.researchgate.net/profile/Kannika-Wiratchawa-2/publication/352532169_LegalBERT-th_Development_of_Legal_QA_Dataset_and_Automatic_Question_Tagging/links/60d2f7c2299bf19b8d9e0693/LegalBERT-th-Development-of-Legal-Q-A-Dataset-and-Automatic-Question-Tagging.pdf" target="_blank">LegalBERT-th: development of legal Q&A dataset and automatic question tagging</a>
+                </div>
+                <div class="pub-authors">Kannika Wiratchawa, Tanutcha Khunthong, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">2021 18th International Conference on Electrical Engineering/Electronics, Computer, Telecommunications and Information Technology (ECTI-CON)</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://www.researchgate.net/profile/Kannika-Wiratchawa-2/publication/352532169_LegalBERT-th_Development_of_Legal_QA_Dataset_and_Automatic_Question_Tagging/links/60d2f7c2299bf19b8d9e0693/LegalBERT-th-Development-of-Legal-Q-A-Dataset-and-Automatic-Question-Tagging.pdf" target="_blank">Link</a>
+                <div class="pub-year">2021</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2019" data-citations="11">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://dl.acm.org/doi/pdf/10.1145/3234508" target="_blank">HILC: Domain-Independent PbD System Via Computer Vision and Follow-Up Questions</a>
+                </div>
+                <div class="pub-authors"> <strong>Thanapong Intharah</strong>, Daniyar Turmukhambetov, Gabriel J Brostow</div>
+                <div class="pub-venue">ACM Transactions on Interactive Intelligent Systems (TiiS) 9 (2-3), Article 16</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://dl.acm.org/doi/pdf/10.1145/3234508" target="_blank">Link</a>
+                <div class="pub-year">2019</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2019" data-citations="0">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8905136" target="_blank">Construction of A Mobile Video Retrieval Dataset in the Cloud: Dos, Don'ts, and the Analysis</a>
+                </div>
+                <div class="pub-authors">Thanyaporn Noiplab, Mongkon Sakdanupab, Akara Supratak, <strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">2019 19th International Symposium on Communications and Information Technologies (ISCIT)</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8905136" target="_blank">Link</a>
+                <div class="pub-year">2019</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2018" data-citations="6">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://dl.acm.org/doi/pdf/10.1145/3242671.3242674" target="_blank">DeepLogger: Extracting User Input Logs From 2D Gameplay Videos</a>
+                </div>
+                <div class="pub-authors"><strong>Thanapong Intharah</strong>, Gabriel J Brostow</div>
+                <div class="pub-venue">Proceedings of the 2018 Annual Symposium on Computer-Human Interaction in Play</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://dl.acm.org/doi/pdf/10.1145/3242671.3242674" target="_blank">Link</a>
+                <div class="pub-year">2018</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2018" data-citations="6">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://dl.acm.org/doi/pdf/10.1145/3170427.3188532" target="_blank">RecurBot: Learn to auto-complete GUI tasks from human demonstrations</a>
+                </div>
+                <div class="pub-authors"><strong>Thanapong Intharah</strong>, Michael Firman, Gabriel J Brostow</div>
+                <div class="pub-venue">Extended Abstracts of the 2018 CHI Conference on Human Factors in Computing Systems</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://dl.acm.org/doi/pdf/10.1145/3170427.3188532" target="_blank">Link</a>
+                <div class="pub-year">2018</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2018" data-citations="4">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://discovery.ucl.ac.uk/id/eprint/10057533/1/ThesisFinalized_reduced.pdf" target="_blank">Learn to automate GUI tasks from demonstration</a>
+                </div>
+                <div class="pub-authors"><strong>Thanapong Intharah</strong></div>
+                <div class="pub-venue">UCL (University College London) - PhD Thesis</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://discovery.ucl.ac.uk/id/eprint/10057533/1/ThesisFinalized_reduced.pdf" target="_blank">Link</a>
+                <div class="pub-year">2018</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2017" data-citations="25">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://dl.acm.org/doi/pdf/10.1145/3025171.3025176" target="_blank">Help, It Looks Confusing: GUI Task Automation Through Demonstration and Follow-up Questions</a>
+                </div>
+                <div class="pub-authors"><strong>Thanapong Intharah</strong>, Daniyar Turmukhambetov, Gabriel J Brostow</div>
+                <div class="pub-venue">Proceedings of the 22nd International Conference on Intelligent User Interfaces (IUI '17)</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://dl.acm.org/doi/pdf/10.1145/3025171.3025176" target="_blank">Link</a>
+                <div class="pub-year">2017</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2015" data-citations="0">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://arxiv.org/pdf/1502.04983" target="_blank">Context Tricks for Cheap Semantic Segmentation</a>
+                </div>
+                <div class="pub-authors"><strong>Thanapong Intharah</strong>, Gabriel J Brostow</div>
+                <div class="pub-venue">arXiv preprint arXiv:1502.04983</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://arxiv.org/pdf/1502.04983" target="_blank">Link</a>
+                <div class="pub-year">2015</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2012" data-citations="3">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6254135" target="_blank">MuralCut: automatic character segmentation from mural images</a>
+                </div>
+                <div class="pub-authors"><strong>Thanapong Intharah</strong>, Noppadon Khiripet</div>
+                <div class="pub-venue">2012 9th International Conference on Electrical Engineering/Electronics, Computer, Telecommunications and Information Technology (ECTI-CON)</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6254135" target="_blank">Link</a>
+                <div class="pub-year">2012</div>
+            </div>
+        </div>
+
+        <div class="pub-row" data-year="2008" data-citations="0">
+            <div class="pub-title-container">
+                <div class="pub-title">
+                    <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4740050" target="_blank">A Novel Evaluation Method of Calibration Techniques for Color Matching</a>
+                </div>
+                <div class="pub-authors"><strong>Thanapong Intharah</strong>, Nongluk Covavisaruch</div>
+                <div class="pub-venue">2008 Second International Symposium on Intelligent Information Technology Application (IITA)</div>
+            </div>
+            <div class="pub-right">
+                <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4740050" target="_blank">Link</a>
+                <div class="pub-year">2008</div>
+            </div>
+        </div>
+
+
+        </div><!-- End publications-list -->
+
     </div>
 
-  </div>
-
-<!-- publications -->
-
-<!-- OPG-SPELL -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://doi.org/10.1109/ACCESS.2025.3600956" target="_blank">
-      OPG-SPELL: Visual and Textual Explanations that Influence Understanding of the AI Model for Sex Prediction from Orthopantomograms
-    </a>
-    <div class="pub-authors">
-      Lapatrada Dangsungnoen; Kwansawan Thongprasant; Kannika Wiratchawa; Natthanich Hirunchavarod; Natnicha Sributsayakarn; 
-      Suchaya Pornprasertsuk-Damrongsri; Varangkanar Jirarattanasopha; Thammathip Piumsomboon; Thanapong Intharah
-    </div>
-    <div class="pub-venue">
-      IEEE Access, 2025
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://doi.org/10.1109/ACCESS.2025.3600956" target="_blank">Link</a>
-  </div>
-  <div class="pub-year">2025</div>
-</div>
-
-<!-- Democratizing social media for health research -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0332484" target="_blank">
-      Democratizing social media for health research: LLM-powered data analytics platform for NCDs
-    </a>
-    <div class="pub-authors">
-      Ratchanont Thippimanporn; Wuttichai Khamna; Kannika Wiratchawa; Thanapong Intharah
-    </div>
-    <div class="pub-venue">
-      PLOS ONE 2025
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0332484" target="_blank">
-      Link
-    </a>
-  </div>
-  <div class="pub-year">2025</div>
-</div>
-
-
-<!-- DentAnalyzer -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://ieeexplore.ieee.org/abstract/document/11137611" target="_blank">
-      DentAnalyzer: Training Car Part Estimation and Car Damage Assessment via Generated and Real Car Images
-    </a>
-    <div class="pub-authors">
-      Phuris Kruacharee; Thanaphorn Kanking; Yupaporn Wanna; Pharamut Makjaroen; Thanapong Intharah
-    </div>
-    <div class="pub-venue">
-      2025 International Technical Conference on Circuits/Systems, Computers, and Communications (ITC-CSCC)
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/11137611" target="_blank">Link</a>
-  </div>
-  <div class="pub-year">2025</div>
-</div>
-
-<!-- DeepTooth: Estimating Age and Gender with Panoramic Radiograph Image -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://ieeexplore.ieee.org/abstract/document/10212499/" target="_blank">
-      DeepTooth: Estimating Age and Gender with Panoramic Radiograph Image
-    </a>
-    <div class="pub-authors">
-      Wanita Somdej, Athitiya Thamvongsa, Natthanich Hirunchavarod, Natnicha Sributsayakarn, Suchaya Pornprasertsuk-Damrongsri, Varangkanar Jirarattanasopha, Thanapong Intharah
-    </div>
-    <div class="pub-venue">
-      2023 International Technical Conference on Circuits/Systems, Computers, and Communications (ITC-CSCC)
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/10212499/" target="_blank">Link</a>
-  </div>
-  <div class="pub-year">2023</div>
-</div>
-
-<!-- OPG-SHAP -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://ieeexplore.ieee.org/abstract/document/10628217">
-      OPG-SHAP: A Dental AI Tool for Explaining Learned Orthopantomogram Image Recognition
-    </a>
-    <div class="pub-authors">
-      Natthanich Hirunchavarod; Lapatrada Dangsungnoen; Kwansawan Thongprasant; Pornnakanok Phuphatham; 
-      Narawit Prathansap; Natnicha Sributsayakarn Suchaya; Pornprasertsuk-Damrongsri; Varangkanar Jirarattanasopha; Thanapong Intharah;
-    </div>
-    <div class="pub-venue">
-      2024 International Technical Conference on Circuits/Systems, Computers, and Communications (ITC-CSCC)
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/10628217">Link</a>
-  </div>
-  <div class="pub-year">2024</div>
-</div>
-
-<!-- DeepToothDuo -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://doi.org/10.1109/ISBI56570.2024.10635634" target="_blank">
-      DeepToothDuo: Multi-Task Age-Sex Estimation and Understanding Via Panoramic Radiograph
-    </a>
-    <div class="pub-authors">
-      Natthanich Hirunchavarod, Pornnakanok Phuphatham, Natnicha Sributsayakarn, Narawit Prathansap, Suchaya Pornprasertsuk-Damrongsri, Varangkanar Jirarattanasopha, Thanapong Intharah
-    </div>
-    <div class="pub-venue">
-      21st IEEE International Symposium on Biomedical Imaging (ISBI), IEEE Computer Society, 2024
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://doi.org/10.1109/ISBI56570.2024.10635634" target="_blank">
-      Link
-    </a>
-  </div>
-  <div class="pub-year">2024</div>
-</div>
-
-
-<!-- BiTNet -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://www.sciencedirect.com/science/article/pii/S0933365723000532" target="_blank">
-      BiTNet: Hybrid deep convolutional model for ultrasound image analysis of human biliary tract and its applications
-    </a>
-    <div class="pub-authors">
-      Thanapong Intharah;  Kannika Wiratchawa; Yupaporn Wanna; 
-      Prem Junsawang; Attapol Titapun; Anchalee Techasen; Arunnit Boonrod; 
-      Vallop Laopaiboon; Nittaya Chamadol; Narong Khuntikeo
-    </div>
-    <div class="pub-venue">
-      Artificial Intelligence in Medicine, 2023
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://www.sciencedirect.com/science/article/pii/S0933365723000532" target="_blank">Link</a>
-  </div>
-  <div class="pub-year">2023</div>
-</div>
-
-<!-- DeepTooth -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://ieeexplore.ieee.org/abstract/document/10212499">
-      DeepTooth: Estimating Age and Gender with Panoramic Radiograph Image
-    </a>
-    <div class="pub-authors">
-      Wanita Somdej; Athitiya Thamvongsa; Natthanich Hirunchavarod; Natnicha Sributsayakarn; 
-      Suchaya Pornprasertsuk-Damrongsri; Varangkanar Jirarattanasopha; Thanapong Intharah
-    </div>
-    <div class="pub-venue">
-      2023 International Technical Conference on Circuits/Systems, Computers, and Communications (ITC-CSCC)
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/10212499">Link</a>
-  </div>
-  <div class="pub-year">2023</div>
-</div>
-<!-- DeepDDM -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="#">
-      DeepDDM: A Compact Deep-Learning Assisted Platform for Micro-Rheological Assessment of Micro-Volume Fluids
-    </a>
-    <div class="pub-authors">
-      Ungkarn Jarujareet; Kannika Wiratchawa; Piyaphong Panpisut; Thanapong Intharah
-    </div>
-    <div class="pub-venue">
-      IEEE Access, 2023
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="#">Link</a>
-  </div>
-  <div class="pub-year">2024</div>
-</div>
-<!-- AI-enhanced RDT for Opisthorchiasis -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://www.nature.com/articles/s41598-025-16893-7">
-      AI-enhanced rapid diagnostic testing platform for mass opisthorchiasis screening
-    </a>
-    <div class="pub-authors">
-      Prem Junsawang; Anchalee Techasen; Kannika Wiratchawa; 
-      Yupaporn Wanna; Phattharaphon Wongphutorn; Chanika Worasith; 
-      Paiboon Sithithaworn; Sahan Bulathwela; Thanapong Intharah
-    </div>
-    <div class="pub-venue">
-      Scientific Reports, volume 15
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://www.nature.com/articles/s41598-025-16893-7">Link</a>
-  </div>
-  <div class="pub-year">2025</div>
-</div>
-<!-- Dual Image QR Codes -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://ieeexplore.ieee.org/abstract/document/10034633">
-      Dual Image QR Codes: The Best of Both Worlds
-    </a>
-    <div class="pub-authors">
-      Chakrit Kammason; Yupaporn Wanna; Kannika Wiratchawa; Thanapong Intharah
-    </div>
-    <div class="pub-venue">
-      2022 International Conference on Digital Image Computing: Techniques and Applications (DICTA)
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/10034633">Link</a>
-  </div>
-  <div class="pub-year">2024</div>
-</div>
-<!-- LegalBERT-th -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://www.researchgate.net/profile/Kannika-Wiratchawa-2/publication/352532169_LegalBERT-th_Development_of_Legal_QA_Dataset_and_Automatic_Question_Tagging/links/60d2f7c2299bf19b8d9e0693/LegalBERT-th-Development-of-Legal-Q-A-Dataset-and-Automatic-Question-Tagging.pdf" target="_blank">
-      LegalBERT-th: Development of Legal Q&A Dataset and Automatic Question Tagging
-    </a>
-    <div class="pub-authors">
-      Kannika Wiratchawa; Sasitorn Kerdprasop
-    </div>
-    <div class="pub-venue">
-      10th International Conference on Knowledge and Smart Technology (KST), 2022
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://www.researchgate.net/profile/Kannika-Wiratchawa-2/publication/352532169_LegalBERT-th_Development_of_Legal_QA_Dataset_and_Automatic_Question_Tagging/links/60d2f7c2299bf19b8e0693/LegalBERT-th-Development-of-Legal-Q-A-Dataset-and-Automatic-Question-Tagging.pdf" target="_blank">
-      PDF
-    </a>
-  </div>
-  <div class="pub-year">2022</div>
-</div>
-
-<!-- CONG: Yet Another Human Tracking Dataset -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10499663">
-      CONG: Yet Another Human Tracking Dataset, but with a Little Secret
-    </a>
-    <div class="pub-authors">
-      Yupaporn Wanna; Thanapong Intharah
-    </div>
-    <div class="pub-venue">
-      16th International Conference on Knowledge and Smart Technology (KST), 2024
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10499663">Link</a>
-  </div>
-  <div class="pub-year">2024</div>
-</div>
-
-<!-- Automated Age and Sex Estimation -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://www.sciencedirect.com/science/article/pii/S0020653925032502">
-      Automated Age and Sex Estimation From Dental Panoramic Radiographs
-    </a>
-    <div class="pub-authors">
-      Natnicha Sributsayakarn; Thanapong Intharah; Natthanich Hirunchavarod; Suchaya Pornprasertsuk-Damrongsri; Varangkanar Jirarattanasopha
-    </div>
-    <div class="pub-venue">
-      International Dental Journal, 2025
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://www.sciencedirect.com/science/article/pii/S0020653925032502">Link</a>
-  </div>
-  <div class="pub-year">2025</div>
-</div>
-
-<!-- arasite egg detection -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://ieeexplore.ieee.org/abstract/document/10212660">
-      Development of oo-do-aware parasite egg detection
-    </a>
-    <div class="pub-authors">
-      Nutsuda Penpong; Yupaporn Wanna; Cristakan Kamjanlard; Anchalee Techasen; Thanapong Intharah
-    </div>
-    <div class="pub-venue">
-      2023 International Technical Conference on Circuits/Systems, Computers, and Communications (ITC-CSCC)
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/10212660">Link</a>
-  </div>
-  <div class="pub-year">2023</div>
-</div>
-
-<!-- DentShadeAI -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://ieeexplore.ieee.org/abstract/document/9894968">
-      DentShadeAI: A framework for automatic dental shade matching through mobile phone camera
-    </a>
-    <div class="pub-authors">
-      Yupaporn Wanna; Kannika Wiratchawa; Rattaporn Leenaracharoongruang; Waraporn Sittiwong; Piyaphong Panpisut; Thanapong Intharah
-    </div>
-    <div class="pub-venue">
-      2022 37th International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/9894968">Link</a>
-  </div>
-  <div class="pub-year">2022</div>
-</div>
-
-<!-- AISIM -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0322854">
-      AISIM: evaluating impacts of user interface elements of an AI assisting tool
-    </a>
-    <div class="pub-authors">
-      Kannika Wiratchawa; Yupaporn Wanna; Prem Junsawang; Attapol Titapun;, Anchalee Techasen; Arunnit Boonrod; 
-      Vallop Laopaiboon; Nittaya Chamadol; Sahan Bulathwela; Thanapong Intharah
-    </div>
-    <div class="pub-venue">
-      PLoS One, 2025
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0322854">Link</a>
-  </div>
-  <div class="pub-year">2025</div>
-</div>
-
-<!-- Detect Prostate Cancer -->
-<div class="pub-row">
-  <div class="pub-title">
-    <a href="https://ieeexplore.ieee.org/abstract/document/9895044">
-      Training Deep CNN's to Detect Prostate Cancer Lesion with Small Training Data
-    </a>
-    <div class="pub-authors">
-      Kannika Wiratchawa; Yupaporn Wanna; Sirirat Cha-in; Chalida Aphinives; Potchavit Aphinives; Thanapong Intharah
-    </div>
-    <div class="pub-venue">
-      2022 37th International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)
-    </div>
-  </div>
-  <div class="pub-project">
-    <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/9895044">Link</a>
-  </div>
-  <div class="pub-year">2022</div>
-</div>
-
-<!-- end -->
-
-  <a class="back-home" href="index.html">← Back to Home</a>
-</div>
-
-<script>
-  let yearAsc = false; // default: latest → oldest
-
-  function sortByYear() {
-    const container = document.querySelector(".pub-container");
-    const rows = Array.from(document.querySelectorAll(".pub-row"));
-
-    rows.sort((a, b) => {
-      const yearA = parseInt(a.querySelector(".pub-year").innerText);
-      const yearB = parseInt(b.querySelector(".pub-year").innerText);
-      return yearAsc ? yearA - yearB : yearB - yearA;
-    });
-
-    yearAsc = !yearAsc;
-
-    rows.forEach(row =>
-      container.insertBefore(row, container.querySelector(".back-home"))
-    );
-  }
-
-  // default sort on load
-  window.onload = function () {
-    sortByYear();
-  };
-</script>
-
-
+    <script>
+        let sortOrder = 'desc'; // Initial sort order (newest first)
+        
+        const yearSortButton = document.getElementById('yearSort');
+        const sortIcon = document.getElementById('sortIcon');
+        const publicationsList = document.getElementById('publications-list');
+        
+        yearSortButton.addEventListener('click', function() {
+            // Toggle sort order
+            sortOrder = sortOrder === 'desc' ? 'asc' : 'desc';
+            
+            // Update icon
+            sortIcon.textContent = sortOrder === 'desc' ? '▼' : '▲';
+            
+            // Get all publication rows
+            const pubRows = Array.from(publicationsList.getElementsByClassName('pub-row'));
+            
+            // Sort the rows
+            pubRows.sort((a, b) => {
+                const yearA = parseInt(a.dataset.year);
+                const yearB = parseInt(b.dataset.year);
+                const citationsA = parseInt(a.dataset.citations);
+                const citationsB = parseInt(b.dataset.citations);
+                
+                if (sortOrder === 'desc') {
+                    // Newest first, then by citations
+                    if (yearB !== yearA) {
+                        return yearB - yearA;
+                    }
+                    return citationsB - citationsA;
+                } else {
+                    // Oldest first, then by citations
+                    if (yearA !== yearB) {
+                        return yearA - yearB;
+                    }
+                    return citationsB - citationsA;
+                }
+            });
+            
+            // Clear the list and re-append in new order
+            publicationsList.innerHTML = '';
+            pubRows.forEach(row => {
+                publicationsList.appendChild(row);
+            });
+        });
+    </script>
 </body>
 </html>
