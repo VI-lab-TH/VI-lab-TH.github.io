@@ -137,9 +137,10 @@
 <tr onmouseout="nerd_stop_SonoSPADE()" onmouseover="nerd_start_SonoSPADE()">
   <td style="padding:20px;width:25%;vertical-align:middle">
     <div class="one">
-      <div class="two" id='nerd_image_SonoSPADE'>
-          <img src="images/SonoSPADE2.png" alt="SonoSPADE" style="width:160px;height:160px;">
-        </div>
+      <div class="two" id='nerd_image_SonoSPADE'><video width=100% height=100% muted autoplay loop playsinline>
+          <source src="images/SonoSPADE.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video></div>
       <img src='images/SonoSPADE1.png' alt="SonoSPADE" width="160">
     </div>
     <script type="text/javascript">
@@ -167,7 +168,7 @@
       SonoSPADE is a real-time, CUDA-free texture stage for closed-loop ultrasound simulators. Conditioned on a physics render and the tissue label slice, it synthesizes per-tissue B-mode texture at 15&ndash;85 frames per second, orders of magnitude faster than diffusion, so a learning agent can scan in the loop.
     </p>
     <a href="https://github.com/tohnperfect/SonoSpade">github</a> /
-    <a href="https://papers.miccai.org/miccai-2026-sat/SASHIMI_035.html">publication (MICCAI-SASHIMI 2026)</a>
+    <a href="https://papers.miccai.org/miccai-2026-sat/SASHIMI_035.html">MICCAI-SASHIMI</a>
   </td>
 </tr>
 
@@ -176,9 +177,10 @@
 <tr onmouseout="nerd_stop_USBGym()" onmouseover="nerd_start_USBGym()">
   <td style="padding:20px;width:25%;vertical-align:middle">
     <div class="one">
-      <div class="two" id='nerd_image_USBGym'>
-          <img src="images/USBGym2.png" alt="USB Gym" style="width:160px;height:160px;">
-        </div>
+      <div class="two" id='nerd_image_USBGym'><video width=100% height=100% muted autoplay loop playsinline>
+          <source src="images/USBGym.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video></div>
       <img src='images/USBGym1.png' alt="USB Gym" width="160">
     </div>
     <script type="text/javascript">
@@ -207,7 +209,7 @@
       USB Gym is a Gymnasium testbed for closed-loop ultrasound view matching: it simulates ultrasound from public patient CT, and an agent moves the probe until its image matches a target view. Organ segmenter, controller and reward are plug-in slots, benchmarked with 20 published methods.
     </p>
     <a href="https://github.com/tohnperfect/USBGym">github</a> /
-    <a href="https://arxiv.org/abs/2611.08352">publication (arXiv 2026)</a>
+    <a href="https://arxiv.org/abs/2611.08352">arXiv</a>
   </td>
 </tr>
 
