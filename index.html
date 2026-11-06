@@ -133,6 +133,85 @@
 -->
 
 
+<!-- SonoSPADE -->
+<tr onmouseout="nerd_stop_SonoSPADE()" onmouseover="nerd_start_SonoSPADE()">
+  <td style="padding:20px;width:25%;vertical-align:middle">
+    <div class="one">
+      <div class="two" id='nerd_image_SonoSPADE'>
+          <img src="images/SonoSPADE2.png" alt="SonoSPADE" style="width:160px;height:160px;">
+        </div>
+      <img src='images/SonoSPADE1.png' alt="SonoSPADE" width="160">
+    </div>
+    <script type="text/javascript">
+      function nerd_start_SonoSPADE() {
+        document.getElementById('nerd_image_SonoSPADE').style.opacity = "1";
+      }
+
+      function nerd_stop_SonoSPADE() {
+        document.getElementById('nerd_image_SonoSPADE').style.opacity = "0";
+      }
+      nerd_stop_SonoSPADE()
+    </script>
+  </td>
+  <td style="padding:20px;width:75%;vertical-align:middle">
+    <a href="https://github.com/tohnperfect/SonoSpade">
+      <papertitle>SonoSPADE</papertitle>
+    </a>
+    <br>
+    <em>(2026) </em>
+    <strong>Thanapong Intharah</strong>,
+    <a href="">Zhichao Gao</a> and
+    <a href="">Hao Dong</a>
+    <br><font color=#FF8080><strong>[Best Reproducibility Award: MICCAI-SASHIMI 2026]</strong></font>
+    <p>
+      SonoSPADE is a real-time, CUDA-free texture stage for closed-loop ultrasound simulators. Conditioned on a physics render and the tissue label slice, it synthesizes per-tissue B-mode texture at 15&ndash;85 frames per second, orders of magnitude faster than diffusion, so a learning agent can scan in the loop.
+    </p>
+    <a href="https://github.com/tohnperfect/SonoSpade">github</a> /
+    <a href="https://papers.miccai.org/miccai-2026-sat/SASHIMI_035.html">publication (MICCAI-SASHIMI 2026)</a>
+  </td>
+</tr>
+
+
+<!-- USBGym -->
+<tr onmouseout="nerd_stop_USBGym()" onmouseover="nerd_start_USBGym()">
+  <td style="padding:20px;width:25%;vertical-align:middle">
+    <div class="one">
+      <div class="two" id='nerd_image_USBGym'>
+          <img src="images/USBGym2.png" alt="USB Gym" style="width:160px;height:160px;">
+        </div>
+      <img src='images/USBGym1.png' alt="USB Gym" width="160">
+    </div>
+    <script type="text/javascript">
+      function nerd_start_USBGym() {
+        document.getElementById('nerd_image_USBGym').style.opacity = "1";
+      }
+
+      function nerd_stop_USBGym() {
+        document.getElementById('nerd_image_USBGym').style.opacity = "0";
+      }
+      nerd_stop_USBGym()
+    </script>
+  </td>
+  <td style="padding:20px;width:75%;vertical-align:middle">
+    <a href="https://github.com/tohnperfect/USBGym">
+      <papertitle>USB Gym</papertitle>
+    </a>
+    <br>
+    <em>(2026) </em>
+    <strong>Thanapong Intharah</strong>,
+    <a href="">Zhichao Gao</a>,
+    <a href="">Yiliang Liu</a> and
+    <a href="">Hao Dong</a>
+    
+    <p>
+      USB Gym is a Gymnasium testbed for closed-loop ultrasound view matching: it simulates ultrasound from public patient CT, and an agent moves the probe until its image matches a target view. Organ segmenter, controller and reward are plug-in slots, benchmarked with 20 published methods.
+    </p>
+    <a href="https://github.com/tohnperfect/USBGym">github</a> /
+    <a href="https://arxiv.org/abs/2611.08352">publication (arXiv 2026)</a>
+  </td>
+</tr>
+
+
 <!-- AISaMD-WDP -->
 <tr onmouseout="nerd_stop_AISaMD()" onmouseover="nerd_start_AISaMD()">
   <td style="padding:20px;width:25%;vertical-align:middle">
